@@ -1,0 +1,23 @@
+!SESSION 2013-02-05 16:37:43.831 -----------------------------------------------
+eclipse.buildId=v21.0.1-543035
+java.version=1.6.0_37
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -product com.android.ide.eclipse.adt.package.product -keyring /Users/shadiasfour/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -data /Users/shadiasfour/Dropbox/ECSE 428 PROJECT/EclipseWorkspace/ShopMap -product com.android.ide.eclipse.adt.package.product -keyring /Users/shadiasfour/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-05 16:37:53.090
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2013-02-05 16:37:53.427
+!MESSAGE DDMS files not found: /Users/shadiasfour/Downloads/adt-bundle-mac-x86_64/eclipse/Eclipse.app/Contents/MacOS/platform-tools/adb /Users/shadiasfour/Downloads/adt-bundle-mac-x86_64/eclipse/Eclipse.app/Contents/MacOS/tools/hprof-conv /Users/shadiasfour/Downloads/adt-bundle-mac-x86_64/eclipse/Eclipse.app/Contents/MacOS/tools/traceview 
+!SESSION 2013-02-10 01:06:27.851 -----------------------------------------------
+eclipse.buildId=v21.0.1-543035
+java.version=1.6.0_37
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -product com.android.ide.eclipse.adt.package.product -product com.android.ide.eclipse.adt.package.product -keyring /Users/shadiasfour/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -product com.android.ide.eclipse.adt.package.product -data /Users/shadiasfour/Dropbox/ECSE 428 PROJECT/EclipseWorkspace/ShopMap -product com.android.ide.eclipse.adt.package.product -keyring /Users/shadiasfour/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-10 01:06:36.014
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
