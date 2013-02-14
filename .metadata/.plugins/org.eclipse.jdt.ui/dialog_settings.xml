@@ -9,16 +9,18 @@
 	<list key="SearchScopeActionGroup.working_set">
 	</list>
 	<section name="completion_proposal_size">
+		<item value="662" key="size.x"/>
+		<item value="440" key="size.y"/>
 	</section>
 	<section name="JavaElementSearchActions">
-	</section>
-	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="SearchInDialog">
 		<item value="true" key="SearchInJRE"/>
 		<item value="true" key="SearchInProjects"/>
 		<item value="true" key="SearchInAppLibs"/>
 		<item value="true" key="SearchInSources"/>
+	</section>
+	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="CallHierarchySearchScope">
 	</section>

@@ -16,13 +16,13 @@ public final class R {
     public static final class id {
         public static final int button1=0x7f070002;
         public static final int button2=0x7f070007;
+        public static final int check=0x7f070003;
         public static final int clearBtn=0x7f070006;
         public static final int fragment_A=0x7f070004;
-        public static final int fragment_B=0x7f070000;
         public static final int fragment_C=0x7f070005;
-        public static final int inputSearch=0x7f070001;
+        public static final int inputSearch=0x7f070000;
         public static final int listView1=0x7f070008;
-        public static final int list_view=0x7f070003;
+        public static final int list_view=0x7f070001;
         public static final int menu_settings=0x7f070009;
     }
     public static final class layout {

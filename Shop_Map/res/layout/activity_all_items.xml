@@ -7,8 +7,6 @@
     <!-- Editext for Search -->
 
     <!-- List View with multipleChoice checkbox enabled -->
-
-	<RelativeLayout
         android:id="@+id/fragment_B"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
@@ -21,15 +19,6 @@
 		    android:hint="Search products.."
 		    android:inputType="textVisiblePassword" />
 
-		<Button
-		    android:id="@+id/button1"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentRight="true"
-		    android:text="Go To Map" />
-
 		<ListView
 		    android:id="@+id/list_view"
 		    android:layout_width="match_parent"
@@ -39,9 +28,16 @@
 		    android:layout_centerHorizontal="true"
 		    android:clickable="false"
         	android:focusable="false"
-		     android:choiceMode="multipleChoice">
+		    android:choiceMode="multipleChoice"/>
+		
+		<CheckBox
+        android:id="@+id/check"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:text="" >
+   		</CheckBox>
 
-		</ListView>
 
-	</RelativeLayout>
 </LinearLayout>

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,12 +27,9 @@ public class AllItemsFragment extends Fragment {
 
 	// Listview Adapter
 	private ArrayAdapter<String> adapter;
-
+	
 	// Search EditText
 	private EditText inputSearch;
-
-	// ArrayList for Listview
-	private ArrayList<HashMap<String, String>> productList;
 
 	ArrayList<String> mySelected = new ArrayList<String>();
 
@@ -58,7 +56,7 @@ public class AllItemsFragment extends Fragment {
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		lv = (ListView) view.findViewById(R.id.list_view);
-
+		
 		// Adding items to listview
 		// Define a new Adapter
 		// First parameter - Context
@@ -72,6 +70,13 @@ public class AllItemsFragment extends Fragment {
 
 		inputSearch = (EditText) view.findViewById(R.id.inputSearch);
 
+		int i=0;
+		CheckBox c =(CheckBox) lv.findViewById(i);
+		while(c!=null){
+			c.setChecked(false);
+			i++;
+			c =(CheckBox) lv.findViewById(i);
+		}
 
 		/**
 		 * Enabling Search Filter
@@ -92,8 +97,6 @@ public class AllItemsFragment extends Fragment {
 
 			}
 
-
-
 			@Override
 			public void afterTextChanged(Editable arg0) {
 				// TODO Auto-generated method stub
@@ -101,11 +104,13 @@ public class AllItemsFragment extends Fragment {
 			}
 
 		});
+		
+		
 		//		Listener to receive selections
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> a, View v, int position, long id){
-				Toast.makeText(getActivity().getApplicationContext(), "Clicked on ListItem Number " + position, Toast.LENGTH_SHORT).show();   																		
+				//Toast.makeText(getActivity().getApplicationContext(), "Clicked on ListItem Number " + position, Toast.LENGTH_SHORT).show();   																		
 				if(mySelected.contains((lv.getItemAtPosition(position)).toString())) {
 					mySelected.remove((lv.getItemAtPosition(position)).toString());
 				} else {
@@ -116,7 +121,9 @@ public class AllItemsFragment extends Fragment {
 			}
 		});
 
+
 	}
+	
 
 	@Override
 	public void onAttach(Activity activity) {

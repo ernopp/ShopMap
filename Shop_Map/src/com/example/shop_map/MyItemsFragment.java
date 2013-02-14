@@ -13,19 +13,19 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 
 public class MyItemsFragment extends Fragment {
-		
+	
+	//OnItemRemovedListener myListener;
+	
 	ArrayList<String> selectedItems = new ArrayList<String>();
 	
 	ListView listView;
 	
 	ArrayAdapter<String> adapter;
-	
-//	public interface OnItemRemovedListener {
-//		public void onItemRemoved(String item);
-//	}
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -85,6 +85,7 @@ public class MyItemsFragment extends Fragment {
 		                selectedItems.remove(positionToRemove);
 		                adapter.notifyDataSetChanged();
 		            }});
+		        		        
 		        adb.show();
 		       // myListener.onItemRemoved(listView.getItemAtPosition(position).toString());
 			}
