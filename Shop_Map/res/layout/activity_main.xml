@@ -2,13 +2,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"    > 
+    <!-- Editext for Search -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+      <!-- List View with multipleChoice checkbox enabled  -->
+	<RelativeLayout
+        android:id="@+id/fragment_A"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+		<!-- <EditText
+		    android:id="@+id/inputSearch"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:ems="10"
+		    android:hint="Search products.."
+		    android:inputType="textVisiblePassword" />
+
+		<Button
+		    android:id="@+id/button1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignParentLeft="true"
+		    android:layout_alignParentRight="true"
+		    android:text="Button" />
+
+		<ListView
+		    android:id="@+id/list_view"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_above="@+id/button1"
+		    android:layout_below="@+id/inputSearch"
+		    android:layout_centerHorizontal="true"
+		    android:choiceMode="multipleChoice" >
+
+		</ListView> -->
+		</RelativeLayout>
 
 </RelativeLayout>

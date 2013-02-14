@@ -1,3 +1,2 @@
-INDEX VERSION 1.126+E:\Dropbox\Dropbox\ECSE 428 PROJECT\EclipseWorkspace\.metadata\.plugins\org.eclipse.jdt.core
-2927749509.index
-3050123956.index
+INDEX VERSION 1.126+/home/ernie/Dropbox/ECSE 428 PROJECT/EclipseWorkspace/.metadata/.plugins/org.eclipse.jdt.core
+521066630.index

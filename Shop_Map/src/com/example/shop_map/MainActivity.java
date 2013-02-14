@@ -1,42 +1,61 @@
 package com.example.shop_map;
 
+import java.util.ArrayList;
+
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
-import android.app.Activity;
-import android.app.FragmentTransaction;
+import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 
-public class MainActivity extends Activity {
+/**
+ * This class is the List Activity - the main activity of ShopMap 
+ * 
+ */
+public class MainActivity extends FragmentActivity implements AllItemsFragment.OnItemSelectedListener {
+
+	Fragment fragmentA, fragmentB;
+	ArrayList<String> selectedItems;
 
 	@Override
+	/**
+	 * This function is executed when the app is opened
+	 * @param A bundle containing the saved state of the app
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_items);
 		
+		//call the parent implementation
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.activity_main);
+
+		selectedItems = new ArrayList<String>();
 		final ActionBar actionBar = getActionBar();
 
-	    // Specify that tabs should be displayed in the action bar.
-	    actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		fragmentA = new AllItemsFragment(); //"left tab"
+		fragmentB = new MyItemsFragment(); //"right tab"
 
-	    // Create a tab listener that is called when the user changes tabs.
-	    ActionBar.TabListener tabListener = new ActionBar.TabListener() {
-	        public void onTabSelected(ActionBar.Tab tab,
-	                FragmentTransaction ft) { }
+		// Specify that tabs should be displayed in the action bar.
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-	        public void onTabUnselected(ActionBar.Tab tab,
-	                FragmentTransaction ft) { }
+		Tab itemsTab = actionBar.newTab().setText("All Items");
+		Tab myItemsTab = actionBar.newTab().setText("My Items");
 
-	        public void onTabReselected(ActionBar.Tab tab,
-	                FragmentTransaction ft) { }
-	    };
+		itemsTab.setTabListener(new MyTabsListener(fragmentA));
+		myItemsTab.setTabListener(new MyTabsListener(fragmentB));
 
-	    Tab itemsTab = actionBar.newTab().setText("All Items").setTabListener(tabListener);
-	    Tab myItemsTab = actionBar.newTab().setText("My Items").setTabListener(tabListener);
-	    
-	    actionBar.addTab(itemsTab);
-	    actionBar.addTab(myItemsTab);
-	    
+		actionBar.addTab(itemsTab);
+		actionBar.addTab(myItemsTab);
+		
+		//following code is to ensure something is sent to fragmentB before the user clicks on any item
+		Bundle bundle = new Bundle();
+		
+		//place selected items in bundle
+		bundle.putStringArrayList("items", selectedItems);
+		
+		//send the bundle to fragment B
+		fragmentB.setArguments(bundle);
 	}
 
 	@Override
@@ -45,5 +64,24 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
+
+	public void onItemSelected(String item) {
+		Bundle bundle = new Bundle();
+
+		if(!selectedItems.contains(item)) {
+			selectedItems.add(item);
+		} else {
+			selectedItems.remove(item);
+		}
+		bundle.putStringArrayList("items", selectedItems);
+		fragmentB.setArguments(bundle);
+	}
+	
+	public void onItemRemoved(String item) {
+		if(this.selectedItems.contains(item)) {
+			this.selectedItems.remove(item);
+		}
+	}
+
 
 }

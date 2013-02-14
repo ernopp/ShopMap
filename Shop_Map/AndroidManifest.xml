@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.shop_map.AllItemsFragment"
+            android:label="@string/title_activity_all_items_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.shop_map.MyItemsFragment"
+            android:label="@string/title_activity_my_items_fragment" >
+        </activity>
     </application>
 
 </manifest>
