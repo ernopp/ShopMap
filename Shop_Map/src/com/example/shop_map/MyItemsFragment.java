@@ -16,6 +16,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 
+/**
+ * Implements the MyItems fragment
+ */
 public class MyItemsFragment extends Fragment {
 	
 	//OnItemRemovedListener myListener;
@@ -91,9 +94,10 @@ public class MyItemsFragment extends Fragment {
 			}
 		});
 	}
-	
-	// for the Clear Selctions Button
-    // uncheck all items
+
+	/**
+	 * Implements the "clear button": remove all items from the selectedItems list
+	 */
     private void ClearSelections(){
     	selectedItems.removeAll(selectedItems);
     	adapter.notifyDataSetChanged();

@@ -19,6 +19,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/**
+ * This class implements the AllItemsFragment
+ */
 public class AllItemsFragment extends Fragment {
 
 	OnItemSelectedListener myListener;
@@ -42,18 +45,27 @@ public class AllItemsFragment extends Fragment {
 			"Fruit, fresh", "Fruit, frozen", "Garlic", "Gelatin", "Graham Crackers", "Granola Bars", "Grapefruit", "Gravy", "Green Pepper", "Gum", "Ham", "Honey", "Hot Dogs", "Ice, block, cube", "Ice Cream", "Ice Cream Cones",
 			"Ice Cream Toppings", "Jam / Jelly", "Juice, bottled", "Juice, frozen", "Ketchup", "Lemons", "Lemon Juice", "Lettuce"};
 
+	/**
+	 * This interface is linked to the onItemSelected implementation
+	 *
+	 */
 	public interface OnItemSelectedListener {
 		public void onItemSelected(String item);
 	}
 
 	@Override
+	/**
+	 * Inflate the layout for this fragment
+	 */
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// Inflate the layout for this fragment
 
 		return inflater.inflate(R.layout.activity_all_items, container, false);
 	}
 
 	@Override
+	/**
+	 * This function populates the fragment view
+	 */
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		lv = (ListView) view.findViewById(R.id.list_view);
 		
@@ -126,6 +138,9 @@ public class AllItemsFragment extends Fragment {
 	
 
 	@Override
+	/**
+	 * Called once the fragment is associated with its activity
+	 */
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		try {

@@ -1,4 +1,6 @@
- List<Item> itemList = db.getAllItems();
+this is a test 
+
+List<Item> itemList = db.getAllItems();
         
         for (Item cn : itemList) {
             String log = "Id: "+cn.getItemId()+" ,Name: " + cn.getItemName() + " ,Category: " + cn.getItemCategory()+ " ,Location: " 

@@ -59,12 +59,20 @@ public class MainActivity extends FragmentActivity implements AllItemsFragment.O
 	}
 
 	@Override
+	/**
+	 * This function inflates the menu - it adds items to the action bar if it is present.
+	 * @return true if the menu was successfully inflated
+	 */
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
 
+	/**
+	 * Implements the logic behind selecting an item. If the item was already selected, remove it from the 
+	 * user's list. If not, add it. 
+	 * @param the name of the item selected (a String) 
+	 */
 	public void onItemSelected(String item) {
 		Bundle bundle = new Bundle();
 
@@ -77,6 +85,11 @@ public class MainActivity extends FragmentActivity implements AllItemsFragment.O
 		fragmentB.setArguments(bundle);
 	}
 	
+	/**
+	 * When an item is removed from the MyItems fragment, remove it from the
+	 * selectedItems list 
+	 * @param item to be removed
+	 */
 	public void onItemRemoved(String item) {
 		if(this.selectedItems.contains(item)) {
 			this.selectedItems.remove(item);
