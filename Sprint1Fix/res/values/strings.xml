@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
- 
+
     <string name="app_name">ListView Checkboxes</string>
- <string name="some_text">
-     Some North American Countries!
- </string>
-     
+    <string name="some_text">     Some North American Countries!</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_my_countries">MyCountries</string>
+
 </resources>

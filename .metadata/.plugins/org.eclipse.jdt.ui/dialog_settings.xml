@@ -18,13 +18,13 @@
 		<item value="400" key="height"/>
 		<item value="600" key="width"/>
 	</section>
+	<section name="quick_assist_proposal_size">
+	</section>
 	<section name="SearchInDialog">
 		<item value="true" key="SearchInJRE"/>
 		<item value="true" key="SearchInProjects"/>
 		<item value="true" key="SearchInAppLibs"/>
 		<item value="true" key="SearchInSources"/>
-	</section>
-	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="javadoc">
 		<item value="false" key="nodeprecatedlist"/>
@@ -48,16 +48,16 @@
 		<section name="projects">
 			<section name="Shop_Map">
 				<item value="/home/ernie/Dropbox/ECSE%20428%20PROJECT/EclipseWorkspace/Shop_Map/doc" key="destdir"/>
-				<item value="http://developer.android.com/reference/;file:/home/ernie/Dropbox/ECSE%2520428%2520PROJECT/EclipseWorkspace/Shop_Map/doc/" key="href"/>
 				<item value="/home/ernie/Dropbox/ECSE 428 PROJECT/EclipseWorkspace/Shop_Map/javadoc.xml" key="antpath"/>
+				<item value="http://developer.android.com/reference/;file:/home/ernie/Dropbox/ECSE%2520428%2520PROJECT/EclipseWorkspace/Shop_Map/doc/" key="href"/>
 			</section>
 		</section>
 	</section>
 	<section name="JavadocWizardDialog">
 		<item value="702" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
-		<item value="333" key="DIALOG_X_ORIGIN"/>
 		<item value="692" key="DIALOG_HEIGHT"/>
+		<item value="333" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="CallHierarchySearchScope">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="25" version="2.0">
+<workbench progressCount="17" version="2.0">
 <workbenchAdvisor/>
 <window height="720" maximized="true" width="1024" x="0" y="24">
 <fastViewData fastViewLocation="1024"/>
@@ -8,18 +8,18 @@
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="144" y="30"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="106" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="156" y="30"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="100" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="98" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -40,14 +40,12 @@
 <part id="5"/>
 <part id="6"/>
 <part id="7"/>
+<part id="8"/>
+<part id="9"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ListViewCheckboxesActivity.java" partName="ListViewCheckboxesActivity.java" path="/home/ernie/ShopMapRepo/Sprint1Fix/src/com/example/sprint1fix/ListViewCheckboxesActivity.java" title="ListViewCheckboxesActivity.java" tooltip="Sprint1Fix/src/com/example/sprint1fix/ListViewCheckboxesActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Sprint1Fix/src/com/example/sprint1fix/ListViewCheckboxesActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2291" selectionTopPixel="330"/>
-</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Country.java" partName="Country.java" path="/home/ernie/ShopMapRepo/Sprint1Fix/src/com/example/sprint1fix/Country.java" title="Country.java" tooltip="Sprint1Fix/src/com/example/sprint1fix/Country.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Sprint1Fix/src/com/example/sprint1fix/Country.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="51" selectionTopPixel="0"/>
@@ -71,6 +69,14 @@
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="R.java" partName="R.java" path="/home/ernie/ShopMapRepo/Sprint1Fix/gen/com/as400samplecode/R.java" title="R.java" tooltip="Sprint1Fix/gen/com/as400samplecode/R.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Sprint1Fix/gen/com/as400samplecode/R.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="255"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MyTabsListener.java" partName="MyTabsListener.java" path="/Users/shadiasfour/Documents/workspace/ShopMap/Shop_Map/src/com/example/shop_map/MyTabsListener.java" title="MyTabsListener.java" tooltip="Shop_Map/src/com/example/shop_map/MyTabsListener.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Shop_Map/src/com/example/shop_map/MyTabsListener.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ListViewCheckboxesActivity.java" partName="ListViewCheckboxesActivity.java" path="/Users/shadiasfour/Documents/workspace/ShopMap/Sprint1Fix/src/com/as400samplecode/ListViewCheckboxesActivity.java" title="ListViewCheckboxesActivity.java" tooltip="Sprint1Fix/src/com/as400samplecode/ListViewCheckboxesActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Sprint1Fix/src/com/as400samplecode/ListViewCheckboxesActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -208,7 +214,6 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Sprint1Fix/src/com/example/sprint1fix/ListViewCheckboxesActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/Sprint1Fix/AndroidManifest.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/Sprint1Fix/res/layout/country_info.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/Sprint1Fix/res/values/strings.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/Sprint1Fix/res/layout/activity_main.xml"/>
@@ -223,86 +228,92 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/Shop_Map/res/menu/activity_main.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/Shop_Map/res/layout/activity_all_items.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Sprint1Fix/gen/com/as400samplecode/R.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/MyTabsListener.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Sprint1Fix/src/com/as400samplecode/ListViewCheckboxesActivity.java"/>
 </editors>
-<item historyLabel="Sprint1Fix Manifest" index="1"/>
-<item historyLabel="country_info.xml" index="2"/>
-<item historyLabel="strings.xml" index="3"/>
-<item historyLabel="country_info.xml" index="2"/>
-<item historyLabel="activity_main.xml" index="4"/>
-<item historyLabel="country_info.xml" index="2"/>
-<item historyLabel="main.xml" index="5"/>
+<item historyLabel="strings.xml" index="2"/>
+<item historyLabel="country_info.xml" index="1"/>
+<item historyLabel="activity_main.xml" index="3"/>
+<item historyLabel="country_info.xml" index="1"/>
+<item historyLabel="main.xml" index="4"/>
 <item historyLabel="ListViewCheckboxesActivity.java" index="0">
 <position info="not_deleted" x="1878" y="0"/>
 </item>
-<item historyLabel="R.java" index="6">
+<item historyLabel="R.java" index="5">
 <position info="not_deleted" x="1454" y="0"/>
 </item>
 <item historyLabel="ListViewCheckboxesActivity.java" index="0">
 <position info="not_deleted" x="2291" y="0"/>
 </item>
-<item historyLabel="country_info.xml" index="7"/>
+<item historyLabel="country_info.xml" index="6"/>
 <item historyLabel="ListViewCheckboxesActivity.java" index="0">
 <position info="not_deleted" x="2291" y="0"/>
 </item>
-<item historyLabel="Country.java" index="8">
+<item historyLabel="Country.java" index="7">
 <position info="not_deleted" x="51" y="0"/>
 </item>
 <item historyLabel="ListViewCheckboxesActivity.java" index="0">
 <position info="not_deleted" x="125" y="17"/>
 </item>
-<item historyLabel="R.java" index="9">
+<item historyLabel="R.java" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="ListViewCheckboxesActivity.java" index="0">
 <position info="not_deleted" x="2291" y="0"/>
 </item>
-<item historyLabel="country_info.xml" index="7"/>
-<item historyLabel="main.xml" index="10"/>
-<item historyLabel="country_info.xml" index="7"/>
-<item historyLabel="main.xml" index="10"/>
+<item historyLabel="country_info.xml" index="6"/>
+<item historyLabel="main.xml" index="9"/>
+<item historyLabel="country_info.xml" index="6"/>
+<item historyLabel="main.xml" index="9"/>
 <item historyLabel="ListViewCheckboxesActivity.java" index="0">
 <position info="not_deleted" x="2291" y="0"/>
 </item>
-<item historyLabel="main.xml" index="10"/>
+<item historyLabel="main.xml" index="9"/>
 <item historyLabel="ListViewCheckboxesActivity.java" index="0">
 <position info="not_deleted" x="2291" y="0"/>
 </item>
-<item historyLabel="R.java" index="6">
+<item historyLabel="R.java" index="5">
 <position info="not_deleted" x="1454" y="0"/>
 </item>
 <item historyLabel="ListViewCheckboxesActivity.java" index="0">
 <position info="not_deleted" x="2291" y="0"/>
 </item>
+<item historyLabel="activity_main.xml" index="10"/>
+<item historyLabel="main.xml" index="9"/>
+<item historyLabel="activity_main.xml" index="10"/>
+<item historyLabel="main.xml" index="9"/>
 <item historyLabel="activity_main.xml" index="11"/>
-<item historyLabel="main.xml" index="10"/>
-<item historyLabel="activity_main.xml" index="11"/>
-<item historyLabel="main.xml" index="10"/>
 <item historyLabel="activity_main.xml" index="12"/>
-<item historyLabel="activity_main.xml" index="13"/>
-<item historyLabel="activity_main.xml" index="12"/>
-<item historyLabel="main.xml" index="10"/>
 <item historyLabel="activity_main.xml" index="11"/>
-<item historyLabel="main.xml" index="10"/>
+<item historyLabel="main.xml" index="9"/>
+<item historyLabel="activity_main.xml" index="10"/>
+<item historyLabel="main.xml" index="9"/>
+<item historyLabel="activity_main.xml" index="10"/>
+<item historyLabel="activity_all_items.xml" index="13"/>
+<item historyLabel="main.xml" index="9"/>
+<item historyLabel="activity_all_items.xml" index="13"/>
+<item historyLabel="main.xml" index="9"/>
+<item historyLabel="activity_main.xml" index="10"/>
+<item historyLabel="main.xml" index="9"/>
+<item historyLabel="activity_all_items.xml" index="13"/>
+<item historyLabel="main.xml" index="9"/>
 <item historyLabel="activity_main.xml" index="11"/>
-<item historyLabel="activity_all_items.xml" index="14"/>
-<item historyLabel="main.xml" index="10"/>
-<item historyLabel="activity_all_items.xml" index="14"/>
-<item historyLabel="main.xml" index="10"/>
+<item historyLabel="main.xml" index="9"/>
 <item historyLabel="activity_main.xml" index="11"/>
-<item historyLabel="main.xml" index="10"/>
-<item historyLabel="activity_all_items.xml" index="14"/>
-<item historyLabel="main.xml" index="10"/>
-<item historyLabel="activity_main.xml" index="12"/>
-<item historyLabel="main.xml" index="10"/>
-<item historyLabel="activity_main.xml" index="12"/>
 <item historyLabel="ListViewCheckboxesActivity.java" index="0">
 <position info="not_deleted" x="2291" y="0"/>
 </item>
-<item historyLabel="R.java" index="15">
+<item historyLabel="R.java" index="14">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="ListViewCheckboxesActivity.java" index="0">
+<item historyLabel="ListViewCheckboxesActivity.java" index="0">
 <position info="not_deleted" x="2291" y="0"/>
+</item>
+<item historyLabel="MyTabsListener.java" index="15">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="ListViewCheckboxesActivity.java" index="16">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -312,10 +323,6 @@
 <trimLayout>
 <trimArea IMemento.internal.id="16384">
 <trimItem IMemento.internal.id="bottomLeft"/>
-<trimItem IMemento.internal.id="topLeft"/>
-</trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
@@ -330,6 +337,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ListViewCheckboxesActivity.java" tooltip="Sprint1Fix/src/com/as400samplecode/ListViewCheckboxesActivity.java">
+<persistable path="/Sprint1Fix/src/com/as400samplecode/ListViewCheckboxesActivity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MyTabsListener.java" tooltip="Shop_Map/src/com/example/shop_map/MyTabsListener.java">
+<persistable path="/Shop_Map/src/com/example/shop_map/MyTabsListener.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="R.java" tooltip="Sprint1Fix/gen/com/as400samplecode/R.java">
 <persistable path="/Sprint1Fix/gen/com/as400samplecode/R.java"/>
 </file>
@@ -368,9 +381,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" tooltip="Sprint1Fix/res/layout/activity_main.xml">
 <persistable path="/Sprint1Fix/res/layout/activity_main.xml"/>
-</file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="AdapterView.class" tooltip="android.widget.AdapterView">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Shop_Map/\/home\/ernie\/Downloads\/adt-bundle-linux-x86\/sdk\/platforms\/android-17\/android.jar&lt;android.widget(AdapterView.class"/>
 </file>
 </mruList>
 </workbench>
