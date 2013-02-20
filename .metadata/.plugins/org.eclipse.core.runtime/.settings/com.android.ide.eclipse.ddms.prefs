@@ -8,3 +8,4 @@ logcat.view.colsize.TID=54
 logcat.view.colsize.Tag=124
 logcat.view.colsize.Text=674
 logcat.view.colsize.Time=156
+logcat.view.filters.list=name\: 'Shop map', tag\: '', text\: '', pid\: '', app\: 'Shop_Map', level\: 'verbose', 

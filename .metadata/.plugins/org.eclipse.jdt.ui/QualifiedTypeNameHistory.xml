@@ -2,4 +2,14 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.widget.CheckBox"/>
+<fullyQualifiedTypeName name="com.as400samplecode.R.id"/>
+<fullyQualifiedTypeName name="android.os.Parcelable.Creator"/>
+<fullyQualifiedTypeName name="android.os.Parcelable"/>
+<fullyQualifiedTypeName name="com.example.shop_map.R.layout"/>
+<fullyQualifiedTypeName name="android.view.LayoutInflater.Filter"/>
+<fullyQualifiedTypeName name="android.provider.SyncStateContract.Constants"/>
+<fullyQualifiedTypeName name="android.widget.Filter"/>
+<fullyQualifiedTypeName name="java.util.logging.Filter"/>
+<fullyQualifiedTypeName name="android.widget.Filterable"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ShopMap</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_all_items_fragment">AllItemsFragment</string>
+    <string name="title_activity_my_items_fragment">MyItemsFragment</string>
+
+</resources>
