@@ -23,12 +23,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.shop_map.AllItemsFragment"
-            android:label="@string/title_activity_all_items_fragment" >
+            android:name="com.example.shop_map.ItemsActivity"
+            android:label="@string/title_activity_my_items" >
         </activity>
         <activity
-            android:name="com.example.shop_map.MyItemsFragment"
-            android:label="@string/title_activity_my_items_fragment" >
+            android:name="com.example.shop_map.MapActivity"
+            android:label="@string/title_activity_map" >
         </activity>
     </application>
 
