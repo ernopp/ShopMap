@@ -1,0 +1,36 @@
+package com.as400samplecode;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.ListView;
+
+public class MyCountries extends Activity {
+	
+	ArrayList<String> selectedCountries;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_my_countries);
+		
+		selectedCountries = new ArrayList<String>();
+		
+		Intent intent = getIntent();
+		
+		selectedCountries = intent.getStringArrayListExtra("selectedCountries");
+		
+		ListView lv = findViewById(R.id.listView2);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_my_countries, menu);
+		return true;
+	}
+
+}

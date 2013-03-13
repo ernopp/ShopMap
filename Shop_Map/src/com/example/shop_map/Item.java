@@ -22,8 +22,6 @@ public class Item implements Parcelable {
 		this.name = name;
 		this.selected = selected;
 	}
-
-
 	@Override
 	public int describeContents() {
 		// TODO Auto-generated method stub
@@ -40,6 +38,7 @@ public class Item implements Parcelable {
 		dest.writeInt(yPosition);
 		dest.writeInt(rowSide);
 		dest.writeInt(rowNumber);
+
 	}
 
 	private void readFromParcel(Parcel input) {

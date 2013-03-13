@@ -23,7 +23,6 @@ import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -101,6 +100,8 @@ public class MainActivity extends Activity {
 
 			}
 
+
+
 			@Override
 			public void afterTextChanged(Editable arg0) {
 				// TODO Auto-generated method stub
@@ -135,6 +136,8 @@ public class MainActivity extends Activity {
 			this.itemList = new ArrayList<Item>(itemList);
 			this.fItems = new ArrayList<Item>(itemList);
 			
+		//	this.itemList.addAll(itemList);
+
 		}
 
 		private class ViewHolder {
@@ -249,6 +252,9 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
+				StringBuffer responseText = new StringBuffer();
+				responseText.append("The following were selected...\n");
+
 				myItems.removeAll(myItems);
 
 				ArrayList<Item> itemList = dataAdapter.itemList;
@@ -262,35 +268,34 @@ public class MainActivity extends Activity {
 				Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
 				intent.putParcelableArrayListExtra("selectedItems", myItems);
 				MainActivity.this.startActivity(intent);
-
-
-			}
-		});
-		
-		Button mapButton = (Button) findViewById(R.id.button2);
-		mapButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-				//get all selected items
-				myItems.removeAll(myItems);
-
-				ArrayList<Item> itemList = dataAdapter.itemList;
-				for(int i=0;i<itemList.size();i++){
-					Item item = itemList.get(i);
-					if(item.isSelected()) {
-						myItems.add(item);
-					}
 				}
-
-				Intent intent = new Intent(MainActivity.this, MapActivity.class);
-				intent.putParcelableArrayListExtra("selectedItems", myItems);
-				MainActivity.this.startActivity(intent);
-			}
-		});
+			});
 		
-	}
+			//map button
+			Button mapButton = (Button) findViewById(R.id.button2);
+			mapButton.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+
+					//get all selected items
+					myItems.removeAll(myItems);
+
+					ArrayList<Item> itemList = dataAdapter.itemList;
+					for(int i=0;i<itemList.size();i++){
+						Item item = itemList.get(i);
+						if(item.isSelected()) {
+							myItems.add(item);
+						}
+					}
+
+					Intent intent = new Intent(MainActivity.this, MapActivity.class);
+					intent.putParcelableArrayListExtra("selectedItems", myItems);
+					MainActivity.this.startActivity(intent);
+				}
+			});
+		}
+		
 
 
 	@Override
