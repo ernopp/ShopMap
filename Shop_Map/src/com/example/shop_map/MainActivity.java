@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void displayListView() {
-		//Array list of countries
+		//Array list of groceries
 		ArrayList<Item> itemList = new ArrayList<Item>();
 		ArrayList<String> items = new ArrayList<String>();
 
@@ -73,7 +73,7 @@ public class MainActivity extends Activity {
 			items.add(products[i]);
 		}
 
-		//create an ArrayAdaptar from the String Array
+		//create an ArrayAdapter from the String Array
 		dataAdapter = new MyCustomAdapter(this,R.layout.item_view, itemList);
 
 		ListView listView = (ListView) findViewById(R.id.list_view);
