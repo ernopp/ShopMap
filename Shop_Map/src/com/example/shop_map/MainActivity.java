@@ -1,6 +1,6 @@
 package com.example.shop_map;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import android.app.Activity;
 import android.content.Context;
@@ -30,9 +30,9 @@ import android.widget.Toast;
  * 
  */
 public class MainActivity extends Activity {
-
+	// array adapter for list of items
 	MyCustomAdapter dataAdapter = null;
-
+	// ArrayList used to store selected Items
 	ArrayList<Item> myItems = new ArrayList<Item>();
 
 	String products[] = {"Air Freshener","Aluminum Foil", "Ammonia","Apples", "Apple Sauce","Auto Supplies", "Baby Food", "Bacon", "Bags, lunch", "Bags, sandwich","Bags, storage","Bags, trash","Bags, vacuum","Bagels",
@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
 
 		//call the parent implementation
 		super.onCreate(savedInstanceState);
-
+		// use res/layout/activity_main.xml for layout
 		setContentView(R.layout.activity_main);
 
 		//Generate list View from ArrayList
@@ -62,27 +62,27 @@ public class MainActivity extends Activity {
 
 		checkButtonClick();
 	}
-
+	//initializes and displays all elements on the screen 
 	private void displayListView() {
-		//Array list of groceries
+		//Initialize Array lists of groceries of type String and type Item:
 		ArrayList<Item> itemList = new ArrayList<Item>();
 		ArrayList<String> items = new ArrayList<String>();
-
+		// fill ArrayList of Items with elements of the "products" String array
 		for(int i =0; i< products.length; i++) {
 			itemList.add(new Item(""+i, products[i], false));
 			items.add(products[i]);
 		}
 
-		//create an ArrayAdapter from the String Array
+		//create an ArrayAdapter (for the ListView) from the ArrayList of type Item
 		dataAdapter = new MyCustomAdapter(this,R.layout.item_view, itemList);
-
+		// initialize view elements (search bar and list of check-box items) from XML resources 
 		ListView listView = (ListView) findViewById(R.id.list_view);
 		EditText inputSearch = (EditText) findViewById(R.id.inputSearch);
-		// Assign adapter to ListView
+		// Assign adapter to the ListView to fill the view with the product names of type Item
 		listView.setAdapter(dataAdapter);
 
 		/**
-		 * Enabling Search Filter
+		 * Enabling Filter for Search Bar
 		 * */
 		inputSearch.addTextChangedListener(new TextWatcher() {
 
@@ -110,7 +110,7 @@ public class MainActivity extends Activity {
 
 		});
 
-
+		
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
@@ -129,7 +129,7 @@ public class MainActivity extends Activity {
 		private ArrayList<Item> itemList;
 		private ArrayList<Item> fItems;
 		private Filter filter;
-
+		//constructor
 		public MyCustomAdapter(Context context, int textViewResourceId, 
 				ArrayList<Item> itemList) {
 			super(context, textViewResourceId, itemList);
@@ -139,7 +139,8 @@ public class MainActivity extends Activity {
 		//	this.itemList.addAll(itemList);
 
 		}
-
+		
+		
 		private class ViewHolder {
 			//TextView code;
 			CheckBox name;
@@ -158,7 +159,7 @@ public class MainActivity extends Activity {
 
 				holder = new ViewHolder();
 				//holder.code = (TextView) convertView.findViewById(R.id.textView1);
-				holder.name = (CheckBox) convertView.findViewById(R.id.checkBox1);
+				holder.name = (CheckBox) convertView.findViewById(R.id.checkBox1); // grabs view defined by file 'item_view.xml'
 				convertView.setTag(holder);
 
 				holder.name.setOnClickListener( new View.OnClickListener() {  
@@ -202,7 +203,7 @@ public class MainActivity extends Activity {
 			@Override
 			protected FilterResults performFiltering(CharSequence constraint){
 				FilterResults results = new FilterResults();
-				String prefix = constraint.toString().toLowerCase();
+				String prefix = constraint.toString().toLowerCase(Locale.getDefault());
 
 				if (prefix == null || prefix.length() == 0) {
 					ArrayList<Item> list = new ArrayList<Item>(itemList);
@@ -242,10 +243,10 @@ public class MainActivity extends Activity {
 		}
 	}
 
-
+	// setup the actions the buttons perform on a click
 	private void checkButtonClick() {
 
-
+		// 'Show Items' Button
 		Button myButton = (Button) findViewById(R.id.button1);
 		myButton.setOnClickListener(new OnClickListener() {
 
@@ -264,23 +265,56 @@ public class MainActivity extends Activity {
 						myItems.add(item);
 					}
 				}
-
+				if (myItems.isEmpty()) {
+					Toast.makeText(getApplicationContext(),
+							"No Items Selected, Please Select Items and Try Again.", 
+							Toast.LENGTH_LONG).show();
+				}
+				else {
 				Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
 				intent.putParcelableArrayListExtra("selectedItems", myItems);
 				MainActivity.this.startActivity(intent);
 				}
+				}
 			});
 		
-			//map button
-			Button mapButton = (Button) findViewById(R.id.button2);
-			mapButton.setOnClickListener(new OnClickListener() {
+		// 'Clear All' Button
+		Button clearButton = (Button) findViewById(R.id.button3);
+		clearButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				//StringBuffer responseText = new StringBuffer();
+				//responseText.append("The following were selected...\n");
+				//myItems.removeAll(myItems);
+				
+				// populate complete ArrayList of Items  (all products) :
+				ArrayList<Item> itemList = dataAdapter.itemList;
+				// loop through all items, if they are selected, unselect them
+				for(int i=0;i<itemList.size();i++){
+					Item item = itemList.get(i);
+					if(item.isSelected()) {
+						item.setSelected(false);
+						dataAdapter.clear();
+						displayListView();
+						dataAdapter.notifyDataSetChanged();
+					}
+				}
+
+						
+						}
+					});
+		//'Go to Map' button
+		Button mapButton = (Button) findViewById(R.id.button2);
+		mapButton.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
 
-					//get all selected items
+					//remove all elements of ArrayList myItems
 					myItems.removeAll(myItems);
-
+					// now populate the ArrayList myItems based based on if Item is selected
 					ArrayList<Item> itemList = dataAdapter.itemList;
 					for(int i=0;i<itemList.size();i++){
 						Item item = itemList.get(i);
@@ -288,10 +322,16 @@ public class MainActivity extends Activity {
 							myItems.add(item);
 						}
 					}
-
+					if (myItems.isEmpty()) {
+						Toast.makeText(getApplicationContext(),
+								"No Items Selected, Please Select Items and Try Again.", 
+								Toast.LENGTH_LONG).show();
+					}
+					else {
 					Intent intent = new Intent(MainActivity.this, MapActivity.class);
 					intent.putParcelableArrayListExtra("selectedItems", myItems);
 					MainActivity.this.startActivity(intent);
+					}
 				}
 			});
 		}
