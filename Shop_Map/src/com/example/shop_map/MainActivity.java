@@ -34,15 +34,17 @@ public class MainActivity extends Activity {
 	MyCustomAdapter dataAdapter = null;
 	// ArrayList used to store selected Items
 	ArrayList<Item> myItems = new ArrayList<Item>();
+	ArrayList<Item> allItems;
 
-	String products[] = {"Air Freshener","Aluminum Foil", "Ammonia","Apples", "Apple Sauce","Auto Supplies", "Baby Food", "Bacon", "Bags, lunch", "Bags, sandwich","Bags, storage","Bags, trash","Bags, vacuum","Bagels",
-			"Bakery Goods", "Baking Powder","Baking Soda", "Bananas","Batteries", "Beans", "Beans, refried", "Beef, hamburger", "Beef Jerky", "Beef, roast", "Beef, steak", "Beer", "Beets", "Berries", "Biscuit Mix", "Bleach", "Bouillon cubes",
-			"Bread crumbs", "Bread, French", "Bread", "Broccoli", "Broom", "Buns", "Butter", "Cabbage", "Cake", "Cake / brownie mix", "Candles", "Candy","Cards","Carpet Cleaner", "Carrots", "Celery", "Cereal",
-			"Charcoal", "Cheese, block", "Cheese, cottage", "Cheese, parmesan", "Cheese, sliced", "Cheese, spread", "Cherries", "Chicken", "Chili", "Chili beans", "Chinese food", "Chips, potato", "Chips, tortilla",
-			"Chocolate, baking", "Chocolate Chips","Cleaner", "Cleanser", "Cocoa", "Cocoa Mix", "Coconut", "Coffee", "Cookies", "Cooking Spray", "Corn","Corn meal", "Corn Starch", "Corn Syrup", "Crackers", "Cream Cheese", 
-			"Cream, non-dairy", "Cream, whipping", "Croutons", "Cucumber", "Dessert", "Detergent, laundry","Dips", "Dishwasher soap","Drink Mix", "Eggs", "Evaporated Milk", "Fish", "Flour", "Fruit, canned", "Fruit, dried",
-			"Fruit, fresh", "Fruit, frozen", "Garlic", "Gelatin", "Graham Crackers", "Granola Bars", "Grapefruit", "Gravy", "Green Pepper", "Gum", "Ham", "Honey", "Hot Dogs", "Ice, block, cube", "Ice Cream", "Ice Cream Cones",
-			"Ice Cream Toppings", "Jam / Jelly", "Juice, bottled", "Juice, frozen", "Ketchup", "Lemons", "Lemon Juice", "Lettuce"};
+	//TRIM to 42 items
+	String products[] = {"Air Freshener","Aluminum Foil","Apples", "Apple Sauce","Baby Food", "Bacon", "Bags","Bagels",
+			"Bakery Goods", "Baking Soda", "Bananas","Beans", "Beef", "Beer",   "Biscuit Mix",  
+			"Bread", "Broccoli", 
+			"Cheese", "Cherries", "Chicken", "Chili",  "Chips",
+			 "Corn","Corn meal", "Corn Starch", "Corn Syrup", "Crackers", "Cream Cheese", 
+			 "Cream", "Cucumber", "Dessert", 
+			"Fruit", "Garlic", "Gum", "Ham", "Ice Cream", 
+			"Jam / Jelly", "Juice", "Ketchup", "Lemons", "Lettuce", "Mangoes"};
 
 
 	@Override
@@ -65,16 +67,15 @@ public class MainActivity extends Activity {
 	//initializes and displays all elements on the screen 
 	private void displayListView() {
 		//Initialize Array lists of groceries of type String and type Item:
-		ArrayList<Item> itemList = new ArrayList<Item>();
-		ArrayList<String> items = new ArrayList<String>();
+		allItems = new ArrayList<Item>();
+
 		// fill ArrayList of Items with elements of the "products" String array
 		for(int i =0; i< products.length; i++) {
-			itemList.add(new Item(""+i, products[i], false));
-			items.add(products[i]);
+			allItems.add(new Item(i, products[i], false));
 		}
 
 		//create an ArrayAdapter (for the ListView) from the ArrayList of type Item
-		dataAdapter = new MyCustomAdapter(this,R.layout.item_view, itemList);
+		dataAdapter = new MyCustomAdapter(this,R.layout.item_view, allItems);
 		// initialize view elements (search bar and list of check-box items) from XML resources 
 		ListView listView = (ListView) findViewById(R.id.list_view);
 		EditText inputSearch = (EditText) findViewById(R.id.inputSearch);
@@ -100,25 +101,10 @@ public class MainActivity extends Activity {
 
 			}
 
-
-
 			@Override
 			public void afterTextChanged(Editable arg0) {
 				// TODO Auto-generated method stub
 
-			}
-
-		});
-
-		
-		listView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// When clicked, show a toast with the TextView text
-				Item item = (Item) parent.getItemAtPosition(position);
-				Toast.makeText(getApplicationContext(),
-						"Clicked on Row: " + item.getName(), 
-						Toast.LENGTH_LONG).show();
 			}
 		});
 
@@ -166,10 +152,6 @@ public class MainActivity extends Activity {
 					public void onClick(View v) {  
 						CheckBox cb = (CheckBox) v ;  
 						Item item = (Item) cb.getTag();  
-						Toast.makeText(getApplicationContext(),
-								"Clicked on Checkbox: " + cb.getText() +
-								" is " + cb.isChecked(), 
-								Toast.LENGTH_LONG).show();
 						item.setSelected(cb.isChecked());
 					}  
 				});  
@@ -322,6 +304,7 @@ public class MainActivity extends Activity {
 							myItems.add(item);
 						}
 					}
+					
 					if (myItems.isEmpty()) {
 						Toast.makeText(getApplicationContext(),
 								"No Items Selected, Please Select Items and Try Again.", 
@@ -329,7 +312,7 @@ public class MainActivity extends Activity {
 					}
 					else {
 					Intent intent = new Intent(MainActivity.this, MapActivity.class);
-					intent.putParcelableArrayListExtra("selectedItems", myItems);
+					intent.putParcelableArrayListExtra("allItems", allItems);
 					MainActivity.this.startActivity(intent);
 					}
 				}

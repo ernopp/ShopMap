@@ -4,7 +4,7 @@ import android.os.Parcelable;
 
 public class Item implements Parcelable {
 	
-	String id = null;
+	int id;
 	String name = null;
 	boolean selected = false;
 	int xPosition;
@@ -16,7 +16,7 @@ public class Item implements Parcelable {
 		readFromParcel(input);
 	}
 
-	public Item(String id, String name, boolean selected) {
+	public Item(int id, String name, boolean selected) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -32,7 +32,7 @@ public class Item implements Parcelable {
 	public void writeToParcel(Parcel dest, int flags) {
 
 		dest.writeString(name);
-		dest.writeString(id);
+		dest.writeInt(id);
 		dest.writeByte((byte) (selected ? 1 : 0));
 		dest.writeInt(xPosition);
 		dest.writeInt(yPosition);
@@ -43,7 +43,7 @@ public class Item implements Parcelable {
 
 	private void readFromParcel(Parcel input) {
 		this.name=input.readString();
-		this.id=input.readString();
+		this.id=input.readInt();
 		this.selected=input.readByte() == 1;
 		this.xPosition = input.readInt();
 		this.yPosition = input.readInt();
@@ -65,7 +65,7 @@ public class Item implements Parcelable {
 	
 	//get
 	
-	public String getID() {
+	public int getID() {
 		return id;
 	}
 	public String getName() {
@@ -94,7 +94,7 @@ public class Item implements Parcelable {
 	}
 	
 	//set
-	public void setId(String id){
+	public void setId(int id){
 		this.id = id;
 	}
 	public void setName(String name){
