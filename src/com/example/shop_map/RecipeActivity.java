@@ -1,0 +1,163 @@
+package com.example.shop_map;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ListView;
+import android.widget.Toast;
+
+public class RecipeActivity extends Activity {
+
+	MyCustomAdapter dataAdapter = null;
+	ArrayList<Item> allItems;
+	ArrayList<Recipe> allRecipes;
+	ArrayList<Item> selectedRecipeItems = new ArrayList<Item>();
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		Intent intent = getIntent();
+		allItems = intent.getParcelableArrayListExtra("allItems");
+		allRecipes = intent.getParcelableArrayListExtra("allRecipes");
+
+		setContentView(R.layout.activity_recipe);
+
+		displayListView();
+
+		checkButtonClick();
+
+	}
+
+	private void displayListView() {
+
+		// create an ArrayAdapter (for the ListView) from the ArrayList of type
+		// Item
+		dataAdapter = new MyCustomAdapter(this, R.layout.item_view, allRecipes);
+		ListView listView = (ListView) findViewById(R.id.recipe_list_view);
+		listView.setAdapter(dataAdapter);
+
+	}
+
+	private class MyCustomAdapter extends ArrayAdapter<Recipe> {
+
+		private ArrayList<Recipe> recipeList;
+		private ArrayList<Recipe> fRecipes;
+
+		// constructor
+		public MyCustomAdapter(Context context, int textViewResourceId,
+				ArrayList<Recipe> recipeList) {
+			super(context, textViewResourceId, recipeList);
+			this.recipeList = new ArrayList<Recipe>(recipeList);
+			this.fRecipes = new ArrayList<Recipe>(recipeList);
+
+		}
+
+		private class ViewHolder {
+			// TextView code;
+			CheckBox name;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+
+			ViewHolder holder = null;
+			Log.v("ConvertView", String.valueOf(position));
+
+			if (convertView == null) {
+				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				convertView = vi.inflate(R.layout.item_view, null);
+
+				holder = new ViewHolder();
+				// holder.code = (TextView)
+				// convertView.findViewById(R.id.textView1);
+				holder.name = (CheckBox) convertView
+						.findViewById(R.id.checkBox1); // grabs view defined by
+														// file 'item_view.xml'
+				convertView.setTag(holder);
+
+				holder.name.setOnClickListener(new View.OnClickListener() {
+					public void onClick(View v) {
+						CheckBox cb = (CheckBox) v;
+						Recipe recipe = (Recipe) cb.getTag();
+						recipe.setSelected(cb.isChecked());
+					}
+				});
+			} else {
+				holder = (ViewHolder) convertView.getTag();
+			}
+
+			Recipe recipe = fRecipes.get(position);
+			if (recipe != null) {
+				holder.name.setText(recipe.getName());
+				holder.name.setChecked(recipe.isSelected());
+				holder.name.setTag(recipe);
+			}
+
+			return convertView;
+
+		}
+
+	}
+
+	private void checkButtonClick() {
+		
+		Button doneButton = (Button) findViewById(R.id.DoneButton);
+		doneButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+
+				selectedRecipeItems.removeAll(selectedRecipeItems);
+
+				ArrayList<Recipe> recipeList = dataAdapter.recipeList;
+				for (int i = 0; i < recipeList.size(); i++) {
+					Recipe recipe = recipeList.get(i);
+					if (recipe.isSelected()) {
+						for (int j = 0; j < recipe.items.size(); j++) {
+							selectedRecipeItems.add(recipe.items.get(j));
+						}
+
+					}
+
+				}
+				
+				if (selectedRecipeItems.isEmpty()) {
+					Toast.makeText(
+							getApplicationContext(),
+							"No recipe was selected. Please select at least one recipe and try again or click on the back button.",
+							Toast.LENGTH_LONG).show();
+				}
+				
+				else {
+					Intent intent = new Intent(RecipeActivity.this, MainActivity.class);
+					intent.putParcelableArrayListExtra("selectedRecipeItems", selectedRecipeItems);
+					intent.putParcelableArrayListExtra("allItems", allItems);
+					intent.putParcelableArrayListExtra("allRecipes", allRecipes);
+					RecipeActivity.this.startActivity(intent);
+				}
+			}
+		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_recipe, menu);
+		return true;
+	}
+
+}
