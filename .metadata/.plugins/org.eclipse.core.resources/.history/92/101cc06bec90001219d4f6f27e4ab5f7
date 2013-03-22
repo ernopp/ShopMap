@@ -1,0 +1,373 @@
+package com.example.shop_map;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.SpannableString;
+import android.text.TextWatcher;
+import android.text.util.Linkify;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.ListView;
+import android.widget.Toast;
+
+/**
+ * This class is the List Activity - the main activity of ShopMap 
+ * 
+ */
+public class MainActivity extends Activity {
+	
+	int shopNum = -1;
+
+	MyCustomAdapter dataAdapter = null;
+
+	ArrayList<Item> myItems = new ArrayList<Item>();
+
+	SpannableString provigoInfo = new SpannableString("<b>Provigo</b>\nAddress: 3421 Avenue Du Parc\n Montréal, QC H2X2H6\nNumber:514-281-0488");
+
+	SpannableString metroInfo = new SpannableString("Metro\nAddress: 3575 Avenue Du Parc\n Montréal, QC H2X3P9\nNumber:514-843-3530");
+
+	SpannableString shops[] = {provigoInfo, metroInfo}; 
+
+	String products[] = {"Air Freshener","Aluminum Foil", "Ammonia","Apples", "Apple Sauce","Auto Supplies", "Baby Food", "Bacon", "Bags, lunch", "Bags, sandwich","Bags, storage","Bags, trash","Bags, vacuum","Bagels",
+			"Bakery Goods", "Baking Powder","Baking Soda", "Bananas","Batteries", "Beans", "Beans, refried", "Beef, hamburger", "Beef Jerky", "Beef, roast", "Beef, steak", "Beer", "Beets", "Berries", "Biscuit Mix", "Bleach", "Bouillon cubes",
+			"Bread crumbs", "Bread, French", "Bread", "Broccoli", "Broom", "Buns", "Butter", "Cabbage", "Cake", "Cake / brownie mix", "Candles", "Candy","Cards","Carpet Cleaner", "Carrots", "Celery", "Cereal",
+			"Charcoal", "Cheese, block", "Cheese, cottage", "Cheese, parmesan", "Cheese, sliced", "Cheese, spread", "Cherries", "Chicken", "Chili", "Chili beans", "Chinese food", "Chips, potato", "Chips, tortilla",
+			"Chocolate, baking", "Chocolate Chips","Cleaner", "Cleanser", "Cocoa", "Cocoa Mix", "Coconut", "Coffee", "Cookies", "Cooking Spray", "Corn","Corn meal", "Corn Starch", "Corn Syrup", "Crackers", "Cream Cheese", 
+			"Cream, non-dairy", "Cream, whipping", "Croutons", "Cucumber", "Dessert", "Detergent, laundry","Dips", "Dishwasher soap","Drink Mix", "Eggs", "Evaporated Milk", "Fish", "Flour", "Fruit, canned", "Fruit, dried",
+			"Fruit, fresh", "Fruit, frozen", "Garlic", "Gelatin", "Graham Crackers", "Granola Bars", "Grapefruit", "Gravy", "Green Pepper", "Gum", "Ham", "Honey", "Hot Dogs", "Ice, block, cube", "Ice Cream", "Ice Cream Cones",
+			"Ice Cream Toppings", "Jam / Jelly", "Juice, bottled", "Juice, frozen", "Ketchup", "Lemons", "Lemon Juice", "Lettuce"};
+
+
+	@Override
+	/**
+	 * This function is executed when the app is opened
+	 * @param A bundle containing the saved state of the app
+	 */
+	protected void onCreate(Bundle savedInstanceState) {
+
+		//call the parent implementation
+		super.onCreate(savedInstanceState);
+
+		setContentView(R.layout.activity_main);
+
+		//Generate list View from ArrayList
+		displayListView();
+
+		checkButtonClick();
+	}
+
+	private void displayListView() {
+		//Array list of groceries
+		ArrayList<Item> itemList = new ArrayList<Item>();
+		ArrayList<String> items = new ArrayList<String>();
+
+		for(int i =0; i< products.length; i++) {
+			itemList.add(new Item(""+i, products[i], false));
+			items.add(products[i]);
+		}
+
+		//create an ArrayAdapter from the String Array
+		dataAdapter = new MyCustomAdapter(this,R.layout.item_view, itemList);
+
+		ListView listView = (ListView) findViewById(R.id.list_view);
+		EditText inputSearch = (EditText) findViewById(R.id.inputSearch);
+		// Assign adapter to ListView
+		listView.setAdapter(dataAdapter);
+
+		/**
+		 * Enabling Search Filter
+		 * */
+		inputSearch.addTextChangedListener(new TextWatcher() {
+
+			@Override
+			public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+				// When user changed the Text
+				MainActivity.this.dataAdapter.getFilter().filter(cs);	
+			}
+
+
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+					int arg3) {
+				// TODO Auto-generated method stub
+
+			}
+
+
+
+			@Override
+			public void afterTextChanged(Editable arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+
+
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// When clicked, show a toast with the TextView text
+				Item item = (Item) parent.getItemAtPosition(position);
+				Toast.makeText(getApplicationContext(),
+						"Clicked on Row: " + item.getName(), 
+						Toast.LENGTH_LONG).show();
+			}
+		});
+
+	}
+
+	private class MyCustomAdapter extends ArrayAdapter<Item> implements Filterable {
+
+		private ArrayList<Item> itemList;
+		private ArrayList<Item> fItems;
+		private Filter filter;
+
+		public MyCustomAdapter(Context context, int textViewResourceId, 
+				ArrayList<Item> itemList) {
+			super(context, textViewResourceId, itemList);
+			this.itemList = new ArrayList<Item>(itemList);
+			this.fItems = new ArrayList<Item>(itemList);
+
+			//	this.itemList.addAll(itemList);
+
+		}
+
+		private class ViewHolder {
+			//TextView code;
+			CheckBox name;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+
+			ViewHolder holder = null;
+			Log.v("ConvertView", String.valueOf(position));
+
+			if (convertView == null) {
+				LayoutInflater vi = (LayoutInflater)getSystemService(
+						Context.LAYOUT_INFLATER_SERVICE);
+				convertView = vi.inflate(R.layout.item_view, null);
+
+				holder = new ViewHolder();
+				//holder.code = (TextView) convertView.findViewById(R.id.textView1);
+				holder.name = (CheckBox) convertView.findViewById(R.id.checkBox1);
+				convertView.setTag(holder);
+
+				holder.name.setOnClickListener( new View.OnClickListener() {  
+					public void onClick(View v) {  
+						CheckBox cb = (CheckBox) v ;  
+						Item item = (Item) cb.getTag();  
+						Toast.makeText(getApplicationContext(),
+								"Clicked on Checkbox: " + cb.getText() +
+								" is " + cb.isChecked(), 
+								Toast.LENGTH_LONG).show();
+						item.setSelected(cb.isChecked());
+					}  
+				});  
+			} 
+			else {
+				holder = (ViewHolder) convertView.getTag();
+			}
+
+
+			Item item = fItems.get(position);
+			if(item != null) {
+				holder.name.setText(item.getName());
+				holder.name.setChecked(item.isSelected());
+				holder.name.setTag(item);
+			}
+
+			return convertView;
+
+		}
+
+		@Override
+		public Filter getFilter(){
+
+			if(filter == null){
+				filter = new ItemFilter();
+			}
+			return filter;
+		}
+
+		private class ItemFilter extends Filter{
+			@Override
+			protected FilterResults performFiltering(CharSequence constraint){
+				FilterResults results = new FilterResults();
+				String prefix = constraint.toString().toLowerCase();
+
+				if (prefix == null || prefix.length() == 0) {
+					ArrayList<Item> list = new ArrayList<Item>(itemList);
+					results.values = list;
+					results.count = list.size();
+				}
+				else{
+					ArrayList<Item> list = new ArrayList<Item>(itemList);
+					ArrayList<Item> nlist = new ArrayList<Item>();
+
+					for (int i = 0; i<list.size(); i++){
+						Item item = list.get(i);
+						String value = item.getName();
+
+						if(value.toLowerCase().contains(prefix.toLowerCase())) {
+							nlist.add(item);
+						}
+						results.values = nlist;
+						results.count = nlist.size();
+					}
+				}
+				return results;
+			}
+
+			@SuppressWarnings("unchecked")
+			@Override
+			protected void publishResults(CharSequence constraint, FilterResults results) {
+				fItems = (ArrayList<Item>)results.values;
+				dataAdapter.notifyDataSetChanged();
+				dataAdapter.clear();
+
+				for(int i = 0; i<fItems.size(); i++){
+					dataAdapter.add(fItems.get(i));
+					dataAdapter.notifyDataSetChanged();
+				}
+			}
+		}
+	}
+
+
+	private void checkButtonClick() {
+
+
+		Button myButton = (Button) findViewById(R.id.button1);
+		myButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				StringBuffer responseText = new StringBuffer();
+				responseText.append("The following were selected...\n");
+
+				myItems.removeAll(myItems);
+
+				ArrayList<Item> itemList = dataAdapter.itemList;
+				for(int i=0;i<itemList.size();i++){
+					Item item = itemList.get(i);
+					if(item.isSelected()) {
+						myItems.add(item);
+					}
+				}
+
+				Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
+				intent.putParcelableArrayListExtra("selectedItems", myItems);
+				MainActivity.this.startActivity(intent);
+			}
+		});
+
+		//map button
+		Button mapButton = (Button) findViewById(R.id.button2);
+		mapButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				//get all selected items
+				myItems.removeAll(myItems);
+
+				ArrayList<Item> itemList = dataAdapter.itemList;
+				for(int i=0;i<itemList.size();i++){
+					Item item = itemList.get(i);
+					if(item.isSelected()) {
+						myItems.add(item);
+					}
+				}
+
+				Intent intent = new Intent(MainActivity.this, MapActivity.class);
+				intent.putParcelableArrayListExtra("selectedItems", myItems);
+				MainActivity.this.startActivity(intent);
+			}
+		});
+
+		//map button
+		Button shopsButton = (Button) findViewById(R.id.shopsButton);
+		shopsButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+				alert.setTitle("Shops Info");
+
+				alert.setSingleChoiceItems(shops, shopNum, new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						//SET SHOP HERE
+						shopNum = which; //0 for provigo, 1 for metro
+					}
+				});
+				alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+
+					}
+				});
+
+				alert.setNegativeButton("CALL", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						if(shopNum == 0) {
+							Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 5142810488")); 
+							startActivity(callIntent);
+						} 
+						else if (shopNum == 1) {
+							Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 5148433530")); 
+							startActivity(callIntent);
+						}
+
+					}
+				});
+				Linkify.addLinks(shops[0], Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+				Linkify.addLinks(shops[1], Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+
+				alert.show();
+
+			}
+		});
+	}
+
+
+
+	@Override
+	/**
+	 * This function inflates the menu - it adds items to the action bar if it is present.
+	 * @return true if the menu was successfully inflated
+	 */
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_main, menu);
+		return true;
+	}
+
+
+}

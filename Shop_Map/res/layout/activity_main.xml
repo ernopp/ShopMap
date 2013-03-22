@@ -31,14 +31,16 @@
 	    android:layout_alignParentTop="true"
 	    android:text="@string/clear_all" />
 	<!-- Go To Map Button -->
+
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/button1"
         android:text="@string/go_map" />
+
 	<!-- Scrollable List of Items -->
     <ListView
         android:id="@+id/list_view"
@@ -49,5 +51,14 @@
         android:layout_centerHorizontal="true" >
 
     </ListView>
+
+    <Button
+        android:id="@+id/shopsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/button1"
+        android:text="Shops" />
 
 </RelativeLayout>

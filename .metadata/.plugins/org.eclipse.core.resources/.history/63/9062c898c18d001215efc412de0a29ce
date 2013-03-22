@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menu_settings"/>
+    <Button
+        android:id="@+id/infoButton"
+        android:alignBottom = "true"
+        android:alignLeft = "true"
+        android:alignRight = "true"
+        andoird:title = "Shop Info"
+            />
+    
+   
+</menu>

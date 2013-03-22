@@ -1,5 +1,2 @@
-INDEX VERSION 1.126+/home/ernie/ShopMapRepo/.metadata/.plugins/org.eclipse.jdt.core
-3304441035.index
+INDEX VERSION 1.126+/Users/shadiasfour/Documents/workspace/ShopMap/.metadata/.plugins/org.eclipse.jdt.core
 521066630.index
-878119807.index
-1043995752.index

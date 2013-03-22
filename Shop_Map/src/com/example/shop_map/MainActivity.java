@@ -1,21 +1,25 @@
 package com.example.shop_map;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Locale;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -35,16 +39,25 @@ public class MainActivity extends Activity {
 	// ArrayList used to store selected Items
 	ArrayList<Item> myItems = new ArrayList<Item>();
 	ArrayList<Item> allItems;
+	
+	//shopNum used to keep track of shop selected
+	int shopNum = -1;
 
 	//TRIM to 42 items
 	String products[] = {"Air Freshener","Aluminum Foil","Apples", "Apple Sauce","Baby Food", "Bacon", "Bags","Bagels",
 			"Bakery Goods", "Baking Soda", "Bananas","Beans", "Beef", "Beer",   "Biscuit Mix",  
 			"Bread", "Broccoli", 
 			"Cheese", "Cherries", "Chicken", "Chili",  "Chips",
-			 "Corn","Corn meal", "Corn Starch", "Corn Syrup", "Crackers", "Cream Cheese", 
-			 "Cream", "Cucumber", "Dessert", 
+			"Corn","Corn meal", "Corn Starch", "Corn Syrup", "Crackers", "Cream Cheese", 
+			"Cream", "Cucumber", "Dessert", 
 			"Fruit", "Garlic", "Gum", "Ham", "Ice Cream", 
 			"Jam / Jelly", "Juice", "Ketchup", "Lemons", "Lettuce", "Mangoes"};
+	
+	SpannableString provigoInfo = new SpannableString("Provigo\n3421 Avenue Du Parc\nMontréal, QC H2X2H6\n514-281-0488");
+
+	SpannableString metroInfo = new SpannableString("Metro\n3575 Avenue Du Parc\nMontréal, QC H2X3P9\n514-843-3530");
+
+	SpannableString shops[] = {provigoInfo, metroInfo}; 
 
 
 	@Override
@@ -121,12 +134,12 @@ public class MainActivity extends Activity {
 			super(context, textViewResourceId, itemList);
 			this.itemList = new ArrayList<Item>(itemList);
 			this.fItems = new ArrayList<Item>(itemList);
-			
-		//	this.itemList.addAll(itemList);
+
+			//	this.itemList.addAll(itemList);
 
 		}
-		
-		
+
+
 		private class ViewHolder {
 			//TextView code;
 			CheckBox name;
@@ -160,7 +173,7 @@ public class MainActivity extends Activity {
 				holder = (ViewHolder) convertView.getTag();
 			}
 
-			
+
 			Item item = fItems.get(position);
 			if(item != null) {
 				holder.name.setText(item.getName());
@@ -216,7 +229,7 @@ public class MainActivity extends Activity {
 				fItems = (ArrayList<Item>)results.values;
 				dataAdapter.notifyDataSetChanged();
 				dataAdapter.clear();
-	
+
 				for(int i = 0; i<fItems.size(); i++){
 					dataAdapter.add(fItems.get(i));
 					dataAdapter.notifyDataSetChanged();
@@ -253,13 +266,13 @@ public class MainActivity extends Activity {
 							Toast.LENGTH_LONG).show();
 				}
 				else {
-				Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
-				intent.putParcelableArrayListExtra("selectedItems", myItems);
-				MainActivity.this.startActivity(intent);
+					Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
+					intent.putParcelableArrayListExtra("selectedItems", myItems);
+					MainActivity.this.startActivity(intent);
 				}
-				}
-			});
-		
+			}
+		});
+
 		// 'Clear All' Button
 		Button clearButton = (Button) findViewById(R.id.button3);
 		clearButton.setOnClickListener(new OnClickListener() {
@@ -270,7 +283,7 @@ public class MainActivity extends Activity {
 				//StringBuffer responseText = new StringBuffer();
 				//responseText.append("The following were selected...\n");
 				//myItems.removeAll(myItems);
-				
+
 				// populate complete ArrayList of Items  (all products) :
 				ArrayList<Item> itemList = dataAdapter.itemList;
 				// loop through all items, if they are selected, unselect them
@@ -284,41 +297,90 @@ public class MainActivity extends Activity {
 					}
 				}
 
-						
-						}
-					});
+
+			}
+		});
 		//'Go to Map' button
 		Button mapButton = (Button) findViewById(R.id.button2);
 		mapButton.setOnClickListener(new OnClickListener() {
 
-				@Override
-				public void onClick(View v) {
+			@Override
+			public void onClick(View v) {
 
-					//remove all elements of ArrayList myItems
-					myItems.removeAll(myItems);
-					// now populate the ArrayList myItems based based on if Item is selected
-					ArrayList<Item> itemList = dataAdapter.itemList;
-					for(int i=0;i<itemList.size();i++){
-						Item item = itemList.get(i);
-						if(item.isSelected()) {
-							myItems.add(item);
-						}
+				//remove all elements of ArrayList myItems
+				myItems.removeAll(myItems);
+				// now populate the ArrayList myItems based based on if Item is selected
+				ArrayList<Item> itemList = dataAdapter.itemList;
+				for(int i=0;i<itemList.size();i++){
+					Item item = itemList.get(i);
+					if(item.isSelected()) {
+						myItems.add(item);
 					}
-					
-					if (myItems.isEmpty()) {
-						Toast.makeText(getApplicationContext(),
-								"No Items Selected, Please Select Items and Try Again.", 
-								Toast.LENGTH_LONG).show();
-					}
-					else {
+				}
+
+				if (myItems.isEmpty()) {
+					Toast.makeText(getApplicationContext(),
+							"No Items Selected, Please Select Items and Try Again.", 
+							Toast.LENGTH_LONG).show();
+				}
+				else {
 					Intent intent = new Intent(MainActivity.this, MapActivity.class);
 					intent.putParcelableArrayListExtra("allItems", allItems);
 					MainActivity.this.startActivity(intent);
-					}
 				}
-			});
-		}
-		
+			}
+		});
+
+		//shops button
+		Button shopsButton = (Button) findViewById(R.id.shopsButton);
+		shopsButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+				alert.setTitle("Shops Info");
+
+				alert.setSingleChoiceItems(shops, shopNum, new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						//SET SHOP HERE
+						shopNum = which; //0 for provigo, 1 for metro
+					}
+				});
+				alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+
+					}
+				});
+
+				alert.setNegativeButton("CALL", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						if(shopNum == 0) {
+							Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 5142810488")); 
+							startActivity(callIntent);
+						} 
+						else if (shopNum == 1) {
+							Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 5148433530")); 
+							startActivity(callIntent);
+						}
+
+					}
+				});
+				Linkify.addLinks(shops[0], Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+				Linkify.addLinks(shops[1], Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+
+				alert.show();
+
+			}
+		});
+
+	}
+
 
 
 	@Override
