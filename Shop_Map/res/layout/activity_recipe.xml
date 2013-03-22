@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecipeActivity" >
+
+    <TextView
+        android:id="@+id/recipeText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7sp"
+        android:layout_marginLeft="7sp"
+        android:layout_marginTop="7sp"
+        android:text="@string/recipeText"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/recipe_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/DoneButton"
+        android:layout_below="@id/recipeText" >
+    </ListView>
+
+    <Button
+        android:id="@+id/DoneButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/done" >
+    </Button>
+
+</RelativeLayout>

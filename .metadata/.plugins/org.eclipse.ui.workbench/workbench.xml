@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="25" version="2.0">
+<workbench progressCount="19" version="2.0">
 <workbenchAdvisor/>
 <window height="721" maximized="true" width="685" x="684" y="24">
 <fastViewData fastViewLocation="1024"/>
@@ -8,18 +8,18 @@
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="144" y="30"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="106" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="156" y="30"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="40" y="22"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="40" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="54" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
@@ -32,40 +32,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Item.java" partName="Item.java" path="/home/ernie/ShopMapRepo/Shop_Map/src/com/example/shop_map/Item.java" title="Item.java" tooltip="Shop_Map/src/com/example/shop_map/Item.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Shop_Map/src/com/example/shop_map/Item.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="232" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ItemsActivity.java" partName="ItemsActivity.java" path="/home/ernie/ShopMapRepo/Shop_Map/src/com/example/shop_map/ItemsActivity.java" title="ItemsActivity.java" tooltip="Shop_Map/src/com/example/shop_map/ItemsActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Shop_Map/src/com/example/shop_map/ItemsActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="188" selectionOffset="527" selectionTopPixel="396"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="/home/ernie/ShopMapRepo/Shop_Map/src/com/example/shop_map/MainActivity.java" title="MainActivity.java" tooltip="Shop_Map/src/com/example/shop_map/MainActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Shop_Map/src/com/example/shop_map/MainActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="7" selectionOffset="9042" selectionTopPixel="212"/>
-</editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_map.xml" partName="activity_map.xml" path="/home/ernie/ShopMapRepo/Shop_Map/res/layout/activity_map.xml" title="activity_map.xml" tooltip="Shop_Map/res/layout/activity_map.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Shop_Map/res/layout/activity_map.xml"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MapActivity.java" partName="MapActivity.java" path="/home/ernie/ShopMapRepo/Shop_Map/src/com/example/shop_map/MapActivity.java" title="MapActivity.java" tooltip="Shop_Map/src/com/example/shop_map/MapActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Shop_Map/src/com/example/shop_map/MapActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="27" selectionOffset="481" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DrawView.java" partName="DrawView.java" path="/home/ernie/ShopMapRepo/Shop_Map/src/com/example/shop_map/DrawView.java" title="DrawView.java" tooltip="Shop_Map/src/com/example/shop_map/DrawView.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Shop_Map/src/com/example/shop_map/DrawView.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="554" selectionTopPixel="0"/>
-</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
@@ -99,7 +69,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.ui.resourcePerspective">
+<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.ui.resourcePerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -207,166 +177,7 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/ItemsActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/Item.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/MainActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/DrawView.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/MainActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/Item.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/ItemsActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/MapActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/Shop_Map/AndroidManifest.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/Shop_Map/res/values/strings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/ItemsActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/Item.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/MapActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Shop_Map/src/com/example/shop_map/DrawView.java"/>
-</editors>
-<item historyLabel="DrawView.java" index="3">
-<position info="not_deleted" x="1021" y="1"/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position info="not_deleted" x="2573" y="0"/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position info="not_deleted" x="3445" y="0"/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position/>
-</item>
-<item historyLabel="Item.java" index="1">
-<position info="not_deleted" x="1115" y="0"/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position info="not_deleted" x="4741" y="0"/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position info="not_deleted" x="4722" y="0"/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position info="not_deleted" x="4722" y="0"/>
-</item>
-<item historyLabel="ItemsActivity.java" index="0">
-<position info="not_deleted" x="527" y="188"/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="4092" y="0"/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position info="not_deleted" x="4722" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="9411" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="9411" y="0"/>
-</item>
-<item historyLabel="Item.java" index="5">
-<position info="not_deleted" x="2212" y="0"/>
-</item>
-<item historyLabel="Item.java" index="5">
-<position/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position info="not_deleted" x="669" y="0"/>
-</item>
-<item historyLabel="ItemsActivity.java" index="6">
-<position info="not_deleted" x="527" y="188"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="9411" y="0"/>
-</item>
-<item historyLabel="MapActivity.java" index="7">
-<position info="not_deleted" x="579" y="0"/>
-</item>
-<item historyLabel="Item.java" index="5">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="9411" y="0"/>
-</item>
-<item historyLabel="MapActivity.java" index="7">
-<position info="not_deleted" x="579" y="0"/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position info="not_deleted" x="669" y="0"/>
-</item>
-<item historyLabel="Item.java" index="5">
-<position info="not_deleted" x="260" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position/>
-</item>
-<item historyLabel="Item.java" index="5">
-<position info="not_deleted" x="2209" y="0"/>
-</item>
-<item historyLabel="ItemsActivity.java" index="6">
-<position info="not_deleted" x="527" y="188"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position/>
-</item>
-<item historyLabel="Shop_Map Manifest" index="8"/>
-<item historyLabel="strings.xml" index="9"/>
-<item historyLabel="Shop_Map Manifest" index="8"/>
-<item historyLabel="strings.xml" index="9"/>
-<item historyLabel="MainActivity.java" index="4">
-<position/>
-</item>
-<item historyLabel="MapActivity.java" index="7">
-<position info="not_deleted" x="579" y="0"/>
-</item>
-<item historyLabel="DrawView.java" index="3">
-<position info="not_deleted" x="669" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position/>
-</item>
-<item historyLabel="ItemsActivity.java" index="10">
-<position info="not_deleted" x="527" y="188"/>
-</item>
-<item historyLabel="Item.java" index="11">
-<position info="not_deleted" x="2209" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="9103" y="0"/>
-</item>
-<item historyLabel="MapActivity.java" index="12">
-<position info="not_deleted" x="579" y="0"/>
-</item>
-<item historyLabel="DrawView.java" index="13">
-<position info="not_deleted" x="709" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="9042" y="7"/>
-</item>
-<item historyLabel="MapActivity.java" index="12">
-<position info="not_deleted" x="526" y="0"/>
-</item>
-<item historyLabel="DrawView.java" index="13">
-<position info="not_deleted" x="709" y="0"/>
-</item>
-<item historyLabel="Item.java" index="11">
-<position info="not_deleted" x="821" y="0"/>
-</item>
-<item historyLabel="MapActivity.java" index="12">
-<position info="not_deleted" x="481" y="27"/>
-</item>
-<item historyLabel="Item.java" index="11">
-<position info="not_deleted" x="232" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="9042" y="7"/>
-</item>
-<item active="true" historyLabel="DrawView.java" index="13">
-<position info="not_deleted" x="709" y="0"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -374,9 +185,11 @@
 <trimLayout>
 <trimArea IMemento.internal.id="16384">
 <trimItem IMemento.internal.id="bottomLeft"/>
+<trimItem IMemento.internal.id="topLeft"/>
 </trimArea>
 <trimArea IMemento.internal.id="131072">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@2c06b2"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
@@ -387,6 +200,7 @@
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
 <trimItem IMemento.internal.id="bottomRight"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1cd022c"/>
 </trimArea>
 </trimLayout>
 </window>
