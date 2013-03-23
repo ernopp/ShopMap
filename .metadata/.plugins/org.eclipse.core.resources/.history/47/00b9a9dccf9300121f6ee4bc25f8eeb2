@@ -12,7 +12,6 @@ public class MapActivity extends Activity {
 
     DrawView drawView;
 	ArrayList<Item> allItems;
-	int shopNum;
 
     
 	@Override
@@ -21,9 +20,8 @@ public class MapActivity extends Activity {
 	        
 		Intent intent = getIntent();
 		allItems = intent.getParcelableArrayListExtra("allItems");
-		shopNum = intent.getIntExtra("shopNum", 0);
 
-        drawView = new DrawView(this, allItems, shopNum);
+        drawView = new DrawView(this, allItems, 0);
         drawView.setBackgroundColor(Color.WHITE);
         setContentView(drawView);
 	}

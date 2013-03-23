@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
 	ArrayList<Item> selectedRecipeItems;
 
 	//shopNum used to keep track of shop selected
-	int shopNum = 0;
+	int shopNum = -1;
 
 	boolean firstTime = true;
 
@@ -435,7 +435,6 @@ public class MainActivity extends Activity {
 				else {
 					Intent intent = new Intent(MainActivity.this, MapActivity.class);
 					intent.putParcelableArrayListExtra("allItems", allItems);
-					intent.putExtra("shopNum", shopNum);
 					MainActivity.this.startActivity(intent);
 				}
 			}
