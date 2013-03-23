@@ -4,8 +4,6 @@ import android.os.Parcelable;
 
 public class Item implements Parcelable {
 	
-	final String ADDED_MANUALLY = "addedManually";
-	
 	int id;
 	String name = null;
 	boolean selected = false;
@@ -13,7 +11,6 @@ public class Item implements Parcelable {
 	int yPosition;
 	int rowSide;
 	int rowNumber;
-	String addedFrom;
 
 	public Item(Parcel input) {
 		readFromParcel(input);
@@ -24,7 +21,6 @@ public class Item implements Parcelable {
 		this.id = id;
 		this.name = name;
 		this.selected = selected;
-		this.addedFrom = ADDED_MANUALLY;
 	}
 	@Override
 	public int describeContents() {
@@ -42,7 +38,6 @@ public class Item implements Parcelable {
 		dest.writeInt(yPosition);
 		dest.writeInt(rowSide);
 		dest.writeInt(rowNumber);
-		dest.writeString(addedFrom);
 
 	}
 
@@ -54,7 +49,6 @@ public class Item implements Parcelable {
 		this.yPosition = input.readInt();
 		this.rowSide = input.readInt();
 		this.rowNumber = input.readInt();
-		this.addedFrom = input.readString();
 	}
 	
 	public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
@@ -99,11 +93,6 @@ public class Item implements Parcelable {
 		return rowNumber;
 	}
 	
-	public String getAddedFrom()
-	{
-		return addedFrom;
-	}
-	
 	//set
 	public void setId(int id){
 		this.id = id;
@@ -132,11 +121,6 @@ public class Item implements Parcelable {
 	public void setRowNumber(int i)
 	{
 		this.rowNumber = i;
-	}
-	
-	public void setAddedFrom(String addedFrom) 
-	{
-		this.addedFrom = addedFrom;
 	}
 
 }

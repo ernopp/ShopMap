@@ -44,9 +44,6 @@ public class MainActivity extends Activity {
 
 	//shopNum used to keep track of shop selected
 	int shopNum = 0;
-	
-	final String ADDED_MANUALLY = "addedManually";
-	final String ADDED_THROUGH_RECIPE = "addedThroughRecipe";
 
 	boolean firstTime = true;
 
@@ -121,16 +118,10 @@ public class MainActivity extends Activity {
 
 		else {
 			for (int i = 0; i < recipeItems.size(); i++) {
-				Item recipeItem = recipeItems.get(i);
-				
-				int id = recipeItem.id;
-				
-				Item listItem = allItems.get(id);
-				
-				if (!recipeItem.isSelected() && listItem.addedFrom.equals(ADDED_MANUALLY) && listItem.isSelected())
-					recipeItem.setSelected(true);
-					
-				allItems.set(id, recipeItem);
+				Item item = recipeItems.get(i);
+				int id = item.id;
+				//item.setSelected(true);
+				allItems.add(id, item);
 			}
 		}
 
@@ -212,7 +203,6 @@ public class MainActivity extends Activity {
 					public void onClick(View v) {  
 						CheckBox cb = (CheckBox) v ;  
 						Item item = (Item) cb.getTag();  
-						item.setAddedFrom(ADDED_MANUALLY);
 						item.setSelected(cb.isChecked());
 					}  
 				});  

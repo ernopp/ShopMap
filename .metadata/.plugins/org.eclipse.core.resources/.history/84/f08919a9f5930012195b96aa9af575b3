@@ -44,9 +44,6 @@ public class MainActivity extends Activity {
 
 	//shopNum used to keep track of shop selected
 	int shopNum = 0;
-	
-	final String ADDED_MANUALLY = "addedManually";
-	final String ADDED_THROUGH_RECIPE = "addedThroughRecipe";
 
 	boolean firstTime = true;
 
@@ -121,16 +118,10 @@ public class MainActivity extends Activity {
 
 		else {
 			for (int i = 0; i < recipeItems.size(); i++) {
-				Item recipeItem = recipeItems.get(i);
-				
-				int id = recipeItem.id;
-				
-				Item listItem = allItems.get(id);
-				
-				if (!recipeItem.isSelected() && listItem.addedFrom.equals(ADDED_MANUALLY) && listItem.isSelected())
-					recipeItem.setSelected(true);
-					
-				allItems.set(id, recipeItem);
+				Item item = recipeItems.get(i);
+				int id = item.id;
+				//item.setSelected(true);
+				allItems.set(id, item);
 			}
 		}
 
@@ -212,7 +203,6 @@ public class MainActivity extends Activity {
 					public void onClick(View v) {  
 						CheckBox cb = (CheckBox) v ;  
 						Item item = (Item) cb.getTag();  
-						item.setAddedFrom(ADDED_MANUALLY);
 						item.setSelected(cb.isChecked());
 					}  
 				});  
@@ -486,6 +476,54 @@ public class MainActivity extends Activity {
 				alert.show();
 			}
 		});
+
+//		//shops button
+//		Button shopsButton = (Button) findViewById(R.id.shopsButton);
+//		shopsButton.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+//				alert.setTitle("Shops Info");
+//
+//				alert.setSingleChoiceItems(shops, shopNum, new DialogInterface.OnClickListener() {
+//
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						//SET SHOP HERE
+//						shopNum = which; //0 for provigo, 1 for metro
+//					}
+//				});
+//				alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						dialog.dismiss();
+//
+//					}
+//				});
+//
+//				alert.setNegativeButton("CALL", new DialogInterface.OnClickListener() {
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						if(shopNum == 0) {
+//							Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 5142810488")); 
+//							startActivity(callIntent);
+//						} 
+//						else if (shopNum == 1) {
+//							Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 5148433530")); 
+//							startActivity(callIntent);
+//						}
+//
+//					}
+//				});
+//				Linkify.addLinks(shops[0], Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+//				Linkify.addLinks(shops[1], Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
+//
+//				alert.show();
+//
+//			}
+//		});
 		
 		//recipe button
 		Button recipeButton = (Button) findViewById(R.id.recipeButton);
@@ -505,6 +543,8 @@ public class MainActivity extends Activity {
 
 
 	}
+
+
 
 	@Override
 	/**

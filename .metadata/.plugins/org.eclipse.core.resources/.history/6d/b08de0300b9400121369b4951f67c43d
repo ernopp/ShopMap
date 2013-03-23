@@ -99,11 +99,6 @@ public class Item implements Parcelable {
 		return rowNumber;
 	}
 	
-	public String getAddedFrom()
-	{
-		return addedFrom;
-	}
-	
 	//set
 	public void setId(int id){
 		this.id = id;

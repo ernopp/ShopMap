@@ -23,10 +23,7 @@ public class RecipeActivity extends Activity {
 	MyCustomAdapter dataAdapter = null;
 	ArrayList<Item> allItems;
 	ArrayList<Recipe> allRecipes;
-	ArrayList<Item> recipeItems = new ArrayList<Item>();
-	
-	final String ADDED_MANUALLY = "addedManually";
-	final String ADDED_THROUGH_RECIPE = "addedThroughRecipe";
+	ArrayList<Item> selectedRecipeItems = new ArrayList<Item>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +85,7 @@ public class RecipeActivity extends Activity {
 				// convertView.findViewById(R.id.textView1);
 				holder.name = (CheckBox) convertView
 						.findViewById(R.id.checkBox1); // grabs view defined by
-				// file 'item_view.xml'
+														// file 'item_view.xml'
 				convertView.setTag(holder);
 
 				holder.name.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +113,7 @@ public class RecipeActivity extends Activity {
 	}
 
 	private void checkButtonClick() {
-
+		
 		Button doneButton = (Button) findViewById(R.id.DoneButton);
 		doneButton.setOnClickListener(new OnClickListener() {
 
@@ -124,37 +121,34 @@ public class RecipeActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 
-				recipeItems.removeAll(recipeItems);
+				selectedRecipeItems.removeAll(selectedRecipeItems);
 
 				ArrayList<Recipe> recipeList = dataAdapter.recipeList;
 				for (int i = 0; i < recipeList.size(); i++) {
 					Recipe recipe = recipeList.get(i);
 					if (recipe.isSelected()) {
 						for (int j = 0; j < recipe.items.size(); j++) {
-							Item item = recipe.items.get(j);
-							item.setSelected(true);
-							item.setAddedFrom(ADDED_THROUGH_RECIPE);
-							recipeItems.add(item);
-						}
-
-					}
-					else {
-						for (int j = 0; j < recipe.items.size(); j++) {
-							Item item = recipe.items.get(j);
-							item.setSelected(false);
-							item.setAddedFrom(ADDED_THROUGH_RECIPE);
-							recipeItems.add(item);
+							selectedRecipeItems.add(recipe.items.get(j));
 						}
 
 					}
 
 				}
-
-				Intent intent = new Intent(RecipeActivity.this, MainActivity.class);
-				intent.putParcelableArrayListExtra("selectedRecipeItems", recipeItems);
-				intent.putParcelableArrayListExtra("allItems", allItems);
-				intent.putParcelableArrayListExtra("allRecipes", allRecipes);
-				RecipeActivity.this.startActivity(intent);
+				
+				if (selectedRecipeItems.isEmpty()) {
+					Toast.makeText(
+							getApplicationContext(),
+							"No recipe was selected. Please select at least one recipe and try again or click on the back button.",
+							Toast.LENGTH_LONG).show();
+				}
+				
+				else {
+					Intent intent = new Intent(RecipeActivity.this, MainActivity.class);
+					intent.putParcelableArrayListExtra("selectedRecipeItems", selectedRecipeItems);
+					intent.putParcelableArrayListExtra("allItems", allItems);
+					intent.putParcelableArrayListExtra("allRecipes", allRecipes);
+					RecipeActivity.this.startActivity(intent);
+				}
 			}
 		});
 	}

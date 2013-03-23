@@ -24,9 +24,6 @@ public class RecipeActivity extends Activity {
 	ArrayList<Item> allItems;
 	ArrayList<Recipe> allRecipes;
 	ArrayList<Item> recipeItems = new ArrayList<Item>();
-	
-	final String ADDED_MANUALLY = "addedManually";
-	final String ADDED_THROUGH_RECIPE = "addedThroughRecipe";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +130,6 @@ public class RecipeActivity extends Activity {
 						for (int j = 0; j < recipe.items.size(); j++) {
 							Item item = recipe.items.get(j);
 							item.setSelected(true);
-							item.setAddedFrom(ADDED_THROUGH_RECIPE);
 							recipeItems.add(item);
 						}
 
@@ -142,7 +138,6 @@ public class RecipeActivity extends Activity {
 						for (int j = 0; j < recipe.items.size(); j++) {
 							Item item = recipe.items.get(j);
 							item.setSelected(false);
-							item.setAddedFrom(ADDED_THROUGH_RECIPE);
 							recipeItems.add(item);
 						}
 
