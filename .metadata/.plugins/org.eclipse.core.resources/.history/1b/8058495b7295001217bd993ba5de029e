@@ -142,7 +142,7 @@ public class RecipeActivity extends Activity {
 						for (int j = 0; j < recipe.items.size(); j++) {
 							Item item = recipe.items.get(j);
 							item.setSelected(false);
-							//item.setAddedFrom(ADDED_THROUGH_RECIPE);
+							item.setAddedFrom(ADDED_THROUGH_RECIPE);
 							recipeItems.add(item);
 						}
 

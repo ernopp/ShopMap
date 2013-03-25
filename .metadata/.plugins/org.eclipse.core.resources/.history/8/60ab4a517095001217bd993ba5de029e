@@ -93,19 +93,7 @@ public class DrawView extends View {
 		//Entering the Coordinates of each Row in the market
 		if(mapNumber == 0)
     	{
-			Paint p = new Paint();
-			p.setColor(Color.GREEN);
-			p.setStyle(Paint.Style.STROKE);
-			circleRadius = canvas.getWidth()/75;
-	    	p.setTextSize(circleRadius*8);
-			
-			canvas.drawText("Welcome to Provigo!!",x/32 ,y/20 ,p );
-			
-			p.setTextSize(circleRadius*3);
-			canvas.drawText("Cashier 1",x/4-rectangleWitdth/2 ,8*y/10 +rectangleWitdth*2 ,p );
-			canvas.drawText("Cashier 2",x/2-rectangleWitdth/2 ,8*y/10 +rectangleWitdth*2,p );
-			canvas.drawText("Entrance",7*x/8-rectangleWitdth,8*y/10+rectangleWitdth ,p );
-			
+    	
 			//Row in the center 
 	    	rowLocation = new int [3][4];
 			rowLocation[1][0]= x/2-rectangleWitdth/2;
@@ -124,22 +112,8 @@ public class DrawView extends View {
 			rowLocation[2][1]=y/10;
 			rowLocation[2][2]=x*3/4+rectangleWitdth/2;
 			rowLocation[2][3]=8*y/10;
-    	} 
-		else if (mapNumber ==1 )
+    	} else if (mapNumber ==1 )
     	{
-			Paint p = new Paint();
-			p.setColor(Color.GREEN);
-			p.setStyle(Paint.Style.STROKE);
-			circleRadius = canvas.getWidth()/75;
-	    	p.setTextSize(circleRadius*8);
-			
-			canvas.drawText("Welcome to Metro!!",x/32 ,y/20 ,p );
-			
-			p.setTextSize(circleRadius*3);
-			canvas.drawText("Entrance",x/8-rectangleWitdth/2 ,8*y/10 +rectangleWitdth ,p );
-			canvas.drawText("Cashier 1",x/2-rectangleWitdth/2 ,8*y/10 +rectangleWitdth,p );
-			canvas.drawText("Cashier 2",3*x/4-rectangleWitdth/2,8*y/10+rectangleWitdth ,p );
-			
     		rowLocation = new int [6][4];
 			//2nd map 
     		//Row at the left
